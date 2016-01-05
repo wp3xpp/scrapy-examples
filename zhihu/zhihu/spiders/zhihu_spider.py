@@ -112,7 +112,7 @@ class ZhihuSpider(CrawlSpider):
         logindata = {
             '_xsrf': xsrf,
             'email': '531409927@qq.com',
-            'password': 'Hsw2mapei',
+            'password': '***',
             'rememberme': 'true',
             'captcha': captcha_str
         }
