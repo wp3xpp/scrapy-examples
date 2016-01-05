@@ -23,7 +23,8 @@ class JsonWithEncodingPipeline(object):
         self.file = codecs.open('data_utf8.json', 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
-        line = json.dumps(OrderedDict(item), ensure_ascii=False, sort_keys=False) + "\n"
+        line = json.dumps(
+            OrderedDict(item), ensure_ascii=False, sort_keys=False) + "\n"
         self.file.write(line)
         return item
 
@@ -47,10 +48,10 @@ class RedisPipeline(object):
         else:
             ritem = eval(self.r.get(item['id']))
             if ritem == item:
-                debug('item '+item['id']+' equal')
+                debug('item ' + item['id'] + ' equal')
             else:
                 # info('item '+item['id']+' merge\n'+str(item)+'\n'+str(ritem))
-                info('item '+item['id']+' use new item')
+                info('item ' + item['id'] + ' use new item')
             # final_item = dict(item.items() + ritem.items())
             final_item = item
         self.r.set(item['id'], final_item)

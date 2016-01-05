@@ -21,16 +21,18 @@ NEWSPIDER_MODULE = 'zhihu.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'zhihu (+http://www.yourdomain.com)'
 
-DOWNLOADER_MIDDLEWARES = {
-   # 'misc.middleware.CustomHttpProxyMiddleware': 400,
-    'misc.middleware.CustomUserAgentMiddleware': 401,
-}
+# DOWNLOADER_MIDDLEWARES = {
+#     # 'misc.middleware.CustomHttpProxyMiddleware': 400,
+#     'misc.middleware.CustomUserAgentMiddleware': 401,
+# }
 
 ITEM_PIPELINES = {
     'zhihu.pipelines.JsonWithEncodingPipeline': 300,
-    'zhihu.pipelines.RedisPipeline': 301,
+    # 'zhihu.pipelines.RedisPipeline': 301,
 }
 
 LOG_LEVEL = 'INFO'
+
+COOKIES_ENABLED = True
 
 DOWNLOAD_DELAY = 1
